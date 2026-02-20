@@ -3,7 +3,6 @@ import { BsThreeDots } from "react-icons/bs";
 import Studentchart from "./Studentchart";
 import Attendencechart from "./Attendencechart";
 import Expensivechart from "./Expensivechart";
-import Calendar from "react-calendar";
 import Calender from "./Calender";
 import "react-calendar/dist/Calendar.css";
 import Events from "./Events";
