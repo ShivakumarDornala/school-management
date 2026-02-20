@@ -3,12 +3,10 @@ import { createRoot } from "react-dom/client";
 import "./routes/index.css";
 import App from "./routes/App.jsx";
 import { createHashRouter, RouterProvider } from "react-router-dom";
-
 import Dashboard from "./Components/Dashboard.jsx";
 import Home from "./Components/Home.jsx";
 import Classes from "./Components/Classes.jsx";
 import Teachers from "./Components/Teachers/Teachers.jsx";
-import SingleTeacher from "./Components/Teachers/[id]/singleteacher.jsx";
 
 const router = createHashRouter([
   {
