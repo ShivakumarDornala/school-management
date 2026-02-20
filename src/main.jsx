@@ -6,6 +6,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./Components/Dashboard.jsx";
 import Home from "./Components/Home.jsx";
 import Classes from "./Components/Classes.jsx";
+import Teachers from "./Components/Teachers.jsx";
 
 const router = createHashRouter([
   {
@@ -15,6 +16,7 @@ const router = createHashRouter([
       { index: true, element: <Home /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "classes", element: <Classes /> },
+      { path: "teachers", element: <Teachers /> },
     ],
   },
 ]);
