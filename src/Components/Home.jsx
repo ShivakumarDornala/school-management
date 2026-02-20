@@ -32,7 +32,7 @@ const Home = () => {
           </div>
           <div className="flex-1 flex justify-center items-center">
             <img
-              src="/images/BG-home.png"
+              src="/images/BG-Home.png"
               alt=""
               className="w-full h-[500px] object-cover"
             />
