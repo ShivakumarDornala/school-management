@@ -17,7 +17,6 @@ const router = createHashRouter([
       { path: "dashboard", element: <Dashboard /> },
       { path: "classes", element: <Classes /> },
       { path: "teachers", element: <Teachers /> },
-      { path: "teachers/:id", element: <SingleTeacher /> },
     ],
   },
 ]);
