@@ -3,7 +3,7 @@ import { MdArrowOutward } from "react-icons/md";
 
 const Header = () => {
   return (
-    <div className="sticky top-0 z-50 bg-[#f8f9fa] items-center flex justify-center font-[Inter] shadow-md">
+    <div className="sticky top-0 z-1 bg-[#f8f9fa] items-center flex justify-center font-[Inter] shadow-md">
       <div className="flex items-center justify-between w-[95%] mx-auto">
         <div className="Logo py-2">
           <p className="flex items-center gap-2 text-xl font-semibold">
