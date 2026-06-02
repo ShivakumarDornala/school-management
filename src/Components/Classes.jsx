@@ -1,5 +1,6 @@
 import { Trash2, Edit } from "lucide-react";
-//import { useState } from "react";
+import { useRef, useContext } from "react";
+import { ClassContext } from "../ClassContext.jsx";
 
 // const initialClasses = [
 //   {
@@ -100,6 +101,24 @@ import { Trash2, Edit } from "lucide-react";
 // ];
 
 const Classes = () => {
+  const { handleAddTeacher: addTeacherFromContext } = useContext(ClassContext);
+  const addClassName = useRef();
+  const addCapacity = useRef();
+  const addClassTeacher = useRef();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const className = addClassName.current.value;
+    const capacity = addCapacity.current.value;
+    const classTeacher = addClassTeacher.current.value;
+
+    addTeacherFromContext(className, capacity, classTeacher);
+
+    addClassName.current.value = "";
+    addCapacity.current.value = "";
+    addClassTeacher.current.value = "";
+  };
+
   return (
     <>
       <div className="w-[98%] p-6 mx-auto justify-evenly">
@@ -126,9 +145,63 @@ const Classes = () => {
                 </th>
               </tr>
             </thead>
+            {/* <tbody className="divide-y divide-gray-200">
+              {addteacher.map((cls, index) => (
+                <tr
+                  key={index}
+                  className="hover:bg-gray-50 p-1 bg-white odd:bg-gray-100 even:bg-white"
+                >
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {cls.name}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    {cls.capacity}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
+                    {cls.Teacher}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                    <div>
+                      <button className="text-blue-600 hover:bg-blue-100 cursor-pointer rounded-full transition-colors p-2">
+                        <Edit size={16} />
+                      </button>
+                      <button className="text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors p-2">
+                        <Trash2 size={16} />
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              ))}
+            </tbody> */}
           </table>
         </div>
       </div>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Enter Classname"
+          className="w-2xs border border-gray-600 p-1"
+          ref={addClassName}
+        />
+        <input
+          type="text"
+          placeholder="Capacity"
+          className="w-2xs border border-gray-600 cursor-pointer p-1"
+          ref={addCapacity}
+        />
+        <input
+          type="text"
+          placeholder="ClassTeacher"
+          className="w-2xs border border-gray-600 cursor-pointer p-1"
+          ref={addClassTeacher}
+        />
+        <button
+          type="submit"
+          className="bg-green-600 text-white rounded py-2 px-4 cursor-pointer hover:bg-green-700"
+        >
+          Add
+        </button>
+      </form>
     </>
   );
 };

@@ -7,6 +7,7 @@ import Dashboard from "./Components/Dashboard.jsx";
 import Home from "./Components/Home.jsx";
 import Classes from "./Components/Classes.jsx";
 import Teachers from "./Components/Teachers.jsx";
+import { ClassProvider } from "./ClassContext.jsx";
 
 const router = createHashRouter([
   {
@@ -23,6 +24,8 @@ const router = createHashRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <ClassProvider>
+      <RouterProvider router={router} />
+    </ClassProvider>
   </StrictMode>,
 );
