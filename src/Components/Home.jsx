@@ -43,7 +43,7 @@ const Home = () => {
             Key Features
           </p>
           <div className="flex">
-            <div className="w-[200px] border border-gray-400 bg-gray-100 rounded-lg p-4 text-center mx-auto">
+            <div className="w-[200px]   bg-gray-100 rounded-lg p-4 text-center mx-auto">
               <p className="flex justify-center items-center text-7xl text-blue-500 font-semibold">
                 <LuCalendarSearch />
               </p>
@@ -54,7 +54,7 @@ const Home = () => {
                 Keep track of student attendance effortlessly.
               </p>
             </div>
-            <div className="w-[200px] border border-gray-400 bg-gray-100 rounded-lg p-4 text-center mx-auto">
+            <div className="w-[200px] bg-gray-100 rounded-lg p-4 text-center mx-auto">
               <p className="flex justify-center items-center text-7xl text-blue-500 font-semibold">
                 <MdAttachMoney />
               </p>
@@ -65,7 +65,7 @@ const Home = () => {
                 Manage and track school fees with ease.
               </p>
             </div>
-            <div className="w-[200px] border border-gray-400 bg-gray-100 rounded-lg p-4 text-center mx-auto">
+            <div className="w-[200px]  bg-gray-100 rounded-lg p-4 text-center mx-auto">
               <p className="flex justify-center items-center text-7xl text-blue-500 font-semibold">
                 <IoCalendarOutline />
               </p>
@@ -76,7 +76,7 @@ const Home = () => {
                 Create and manage class and school schedules efficiently.
               </p>
             </div>
-            <div className="w-[200px] border border-gray-400 bg-gray-100 rounded-lg p-4 text-center mx-auto">
+            <div className="w-[200px] bg-gray-100 rounded-lg p-4 text-center mx-auto">
               <p className="flex justify-center items-center text-7xl text-blue-500 font-semibold">
                 <TiMessages />
               </p>
@@ -87,7 +87,7 @@ const Home = () => {
                 Enhance communication with parents.
               </p>
             </div>
-            <div className="w-[200px] border border-gray-400 bg-gray-100 rounded-lg p-4 text-center mx-auto">
+            <div className="w-[200px]  bg-gray-100 rounded-lg p-4 text-center mx-auto">
               <p className="flex justify-center items-center text-7xl text-blue-500 font-semibold">
                 <GrAnnounce />
               </p>
