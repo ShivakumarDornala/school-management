@@ -1,6 +1,7 @@
 import { Trash2, Edit } from "lucide-react";
+import { useState } from "react";
 
-const classes = [
+const initialClasses = [
   {
     className: "1A",
     capacity: "50",
@@ -99,9 +100,15 @@ const classes = [
 ];
 
 const Classes = () => {
+  const [classes, setClasses] = useState(initialClasses);
+
+  const handleDelete = (className) => {
+    setClasses(classes.filter((cls) => cls.className !== className));
+  };
+
   return (
     <>
-      <div className="w-[98%] p-6 mx-auto">
+      <div className="w-[98%] p-6 mx-auto justify-evenly">
         <div>
           <h2 className="text-3xl font-bold flex justify-center mb-6">
             Classes
@@ -145,7 +152,10 @@ const Classes = () => {
                       <button className="text-blue-600 hover:bg-blue-100 cursor-pointer rounded-full transition-colors p-2">
                         <Edit size={16} />
                       </button>
-                      <button className="text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors p-2">
+                      <button
+                        className="text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors p-2"
+                        onClick={() => handleDelete(cls.className)}
+                      >
                         <Trash2 size={16} />
                       </button>
                     </div>

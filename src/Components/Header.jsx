@@ -1,6 +1,6 @@
 import { FaGraduationCap } from "react-icons/fa";
 import { MdArrowOutward } from "react-icons/md";
-
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <div className="sticky top-0 z-1 bg-[#f8f9fa] items-center flex justify-center font-[Inter] shadow-md">
@@ -13,12 +13,24 @@ const Header = () => {
         </div>
         <div>
           <ul className="flex items-center gap-3 py-2 text-[15px] cursor-pointer ">
-            <li className="hover:text-blue-700 font-medium">Home</li>
-            <li className="hover:text-blue-700 font-medium">Dashboard</li>
-            <li className="hover:text-blue-700 font-medium">Classes</li>
-            <li className="hover:text-blue-700 font-medium">Teachers</li>
-            <li className="hover:text-blue-700 font-medium">Students</li>
-            <li className="hover:text-blue-700 font-medium">Announcements</li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="/">Home</Link>
+            </li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="Dashboard">Dashboard</Link>
+            </li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="Classes">Classes</Link>
+            </li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="Teachers">Teachers</Link>
+            </li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="Dashboard">Students</Link>
+            </li>
+            <li className="hover:text-blue-700 font-medium">
+              <Link to="Dashboard">Announcements</Link>
+            </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 bg-blue-700 hover:bg-blue-800 p-2 text-white rounded-4xl text-[15px] cursor-pointer">
