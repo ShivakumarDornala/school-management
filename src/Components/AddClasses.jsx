@@ -22,7 +22,7 @@ const AddClasses = () => {
             key={item.id}
             name={item.name}
             capacity={item.capacity}
-            classTeacher={item.Teacher}
+            Teacher={item.Teacher}
           />
         ))}
       </tbody>
