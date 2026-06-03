@@ -3,23 +3,23 @@ import AddTeacher from "./AddTeacher";
 import { ClassContext } from "../ClassContext.jsx";
 
 const AddClasses = () => {
-  const { addteacher } = useContext(ClassContext);
+  const { teacher } = useContext(ClassContext);
 
   return (
-    <table className="w-[98%] mx-auto bg-white border rounded-lg shadow-sm">
-      <thead>
-        <tr className="bg-gray-100 text-left">
-          <th className="p-4 border-b">Class Name</th>
-          <th className="p-4 border-b">Capacity</th>
-          <th className="p-4 border-b">Class Teacher</th>
-          <th className="p-4 border-b text-center">Actions</th>
+    <table className="w-[98%] mx-auto bg-gray-100 rounded-2xl">
+      <thead className="rounded-2xl">
+        <tr className="bg-gray-100 text-left rounded-2xl">
+          <th className="p-4 rounded-tl-2xl">Class Name</th>
+          <th className="p-4 ">Capacity</th>
+          <th className="p-4 ">Class Teacher</th>
+          <th className="p-4 text-center rounded-tr-2xl">Actions</th>
         </tr>
       </thead>
 
-      <tbody>
-        {addteacher.map((item) => (
+      <tbody className="divide-y divide-gray-200 rounded-2xl">
+        {teacher.map((item) => (
           <AddTeacher
-            key={item.id}
+            key={item.name}
             name={item.name}
             capacity={item.capacity}
             Teacher={item.Teacher}

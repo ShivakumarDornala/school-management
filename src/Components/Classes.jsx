@@ -102,7 +102,7 @@ import AddClasses from "./AddClasses.jsx";
 // ];
 
 const Classes = () => {
-  const { handleAddTeacher: addTeacherFromContext } = useContext(ClassContext);
+  const { addteacher } = useContext(ClassContext);
   const addClassName = useRef();
   const addCapacity = useRef();
   const addClassTeacher = useRef();
@@ -113,7 +113,7 @@ const Classes = () => {
     const capacity = addCapacity.current.value;
     const classTeacher = addClassTeacher.current.value;
 
-    addTeacherFromContext(className, capacity, classTeacher);
+    addteacher(className, capacity, classTeacher);
 
     addClassName.current.value = "";
     addCapacity.current.value = "";

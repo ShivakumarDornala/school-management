@@ -1,20 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Trash2, Edit } from "lucide-react";
+import { ClassContext } from "../ClassContext";
 
 const AddTeacher = ({ name, capacity, Teacher }) => {
+  const { deleteteaher } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50">
-      <td className="p-4 border-b">{name}</td>
-      <td className="p-4 border-b">{capacity}</td>
-      <td className="p-4 border-b font-semibold">{Teacher}</td>
+      <td className="p-4">{name}</td>
+      <td className="p-4">{capacity}</td>
+      <td className="p-4 font-semibold">{Teacher}</td>
 
-      <td className="p-4 border-b">
+      <td className="p-4">
         <div className="flex justify-center gap-2">
-          <button className="text-blue-600 hover:bg-blue-100 rounded-full p-2">
+          <button className="text-blue-600 hover:bg-blue-100 rounded-full p-2 cursor-pointer">
             <Edit size={16} />
           </button>
 
-          <button className="text-red-600 hover:bg-red-100 rounded-full p-2">
+          <button
+            className="text-red-600 hover:bg-red-100 rounded-full p-2 cursor-pointer"
+            onClick={() => deleteteaher(name)}
+          >
             <Trash2 size={16} />
           </button>
         </div>

@@ -162,7 +162,7 @@ export const Teachers = () => {
                   </th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-gray-200">
+              <tbody className="divide-y divide-gray-700">
                 {teachers.map((teacher) => (
                   <tr
                     key={teacher.id}
