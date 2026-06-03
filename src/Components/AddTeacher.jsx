@@ -5,12 +5,12 @@ import { ClassContext } from "../ClassContext";
 const AddTeacher = ({ name, capacity, Teacher }) => {
   const { deleteteaher } = useContext(ClassContext);
   return (
-    <tr className="hover:bg-gray-50">
-      <td className="p-4">{name}</td>
+    <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
+      <td className="p-4 ">{name}</td>
       <td className="p-4">{capacity}</td>
       <td className="p-4 font-semibold">{Teacher}</td>
 
-      <td className="p-4">
+      <td className="p-4 ">
         <div className="flex justify-center gap-2">
           <button className="text-blue-600 hover:bg-blue-100 rounded-full p-2 cursor-pointer">
             <Edit size={16} />
