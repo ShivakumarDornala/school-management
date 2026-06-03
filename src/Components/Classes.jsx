@@ -1,6 +1,7 @@
 import { Trash2, Edit } from "lucide-react";
 import { useRef, useContext } from "react";
 import { ClassContext } from "../ClassContext.jsx";
+import AddClasses from "./AddClasses.jsx";
 
 // const initialClasses = [
 //   {
@@ -124,84 +125,42 @@ const Classes = () => {
       <div className="w-[98%] p-6 mx-auto justify-evenly">
         <div>
           <h2 className="text-3xl font-bold flex justify-center mb-6">
-            Classes
+            Add New Class
           </h2>
         </div>
-        <div>
-          <table className="w-full bg-white rounded-lg shadow-sm">
-            <thead>
-              <tr>
-                <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                  Class Name
-                </th>
-                <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                  Capacity
-                </th>
-                <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900 ">
-                  Class Teacher
-                </th>
-                <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                  Actions
-                </th>
-              </tr>
-            </thead>
-            {/* <tbody className="divide-y divide-gray-200">
-              {addteacher.map((cls, index) => (
-                <tr
-                  key={index}
-                  className="hover:bg-gray-50 p-1 bg-white odd:bg-gray-100 even:bg-white"
-                >
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {cls.name}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    {cls.capacity}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-900">
-                    {cls.Teacher}
-                  </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                    <div>
-                      <button className="text-blue-600 hover:bg-blue-100 cursor-pointer rounded-full transition-colors p-2">
-                        <Edit size={16} />
-                      </button>
-                      <button className="text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors p-2">
-                        <Trash2 size={16} />
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-              ))}
-            </tbody> */}
-          </table>
+        <div className="p-6 bg-gray-50 rounded-lg">
+          <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap">
+            <input
+              type="text"
+              placeholder="Enter Classname"
+              className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+              ref={addClassName}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Capacity"
+              className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+              ref={addCapacity}
+              required
+            />
+            <input
+              type="text"
+              placeholder="Class Teacher"
+              className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+              ref={addClassTeacher}
+              required
+            />
+            <button
+              type="submit"
+              className="bg-green-600 text-white rounded py-2 px-6 cursor-pointer hover:bg-green-700"
+            >
+              Add Teacher
+            </button>
+          </form>
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Enter Classname"
-          className="w-2xs border border-gray-600 p-1"
-          ref={addClassName}
-        />
-        <input
-          type="text"
-          placeholder="Capacity"
-          className="w-2xs border border-gray-600 cursor-pointer p-1"
-          ref={addCapacity}
-        />
-        <input
-          type="text"
-          placeholder="ClassTeacher"
-          className="w-2xs border border-gray-600 cursor-pointer p-1"
-          ref={addClassTeacher}
-        />
-        <button
-          type="submit"
-          className="bg-green-600 text-white rounded py-2 px-4 cursor-pointer hover:bg-green-700"
-        >
-          Add
-        </button>
-      </form>
+      <AddClasses />
     </>
   );
 };

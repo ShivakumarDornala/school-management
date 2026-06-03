@@ -1,6 +1,9 @@
 import { createContext, useState } from "react";
 
-export const ClassContext = createContext();
+export const ClassContext = createContext({
+  teacher: [],
+  addteacher: () => {},
+});
 
 export const ClassProvider = ({ children }) => {
   const [addteacher, setaddteacher] = useState([]);
