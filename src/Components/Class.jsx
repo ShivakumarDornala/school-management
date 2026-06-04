@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Trash2, Edit } from "lucide-react";
 import { ClassContext } from "../ClassContext";
 
-const AddTeacher = ({ name, capacity, Teacher }) => {
+const Class = ({ name, capacity, Teacher }) => {
   const { deleteteaher } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
@@ -28,4 +28,4 @@ const AddTeacher = ({ name, capacity, Teacher }) => {
   );
 };
 
-export default AddTeacher;
+export default Class;
