@@ -24,13 +24,13 @@ const Classes = () => {
 
   return (
     <>
-      <div className="w-[98%] p-6 mx-auto justify-evenly">
+      <div className="w-[96%] mx-auto justify-evenly  rounded-2xl">
         <div>
-          <h2 className="text-3xl font-bold flex justify-center mb-6">
+          <h2 className="text-3xl font-bold flex justify-center my-6">
             Add New Class
           </h2>
         </div>
-        <div className="p-6 bg-gray-50 rounded-lg">
+        <div className="bg-gray-50">
           <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap">
             <input
               type="text"

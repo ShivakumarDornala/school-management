@@ -7,8 +7,8 @@ const AddClasses = () => {
 
   return (
     <div className="bg-gray-50 rounded-2xl p-4">
-      <div className="w-full rounded-2xl overflow-hidden shadow-sm">
-        <table className="w-full border-separate border-spacing-0">
+      <div className="w-[98%] mx-auto rounded-2xl overflow-hidden shadow-sm">
+        <table className="w-full mx-auto border-separate border-spacing-0">
           <thead>
             <tr className="bg-white text-left">
               <th className="p-4 rounded-tl-2xl">Class Name</th>

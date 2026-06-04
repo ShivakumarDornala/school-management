@@ -62,7 +62,7 @@ const Footer = () => {
           </div>
         </div>
         <div>
-          <p className="text-gray-600 pt-10 justify-center flex">
+          <p className="text-gray-600 py-5 justify-center flex">
             copyright © 2025 Edutrack. All rights reserved.
           </p>
         </div>
