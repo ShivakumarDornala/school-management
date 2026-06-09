@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useRef } from "react";
 import { ClassContext } from "../ClassContext";
+import Teachers from "./Teachers";
 
 const AddTeacher = () => {
   const { addteacher } = useContext(ClassContext);
@@ -25,12 +26,18 @@ const AddTeacher = () => {
 
   return (
     <>
-      <div className="flex w-[98%] mx-auto justify-evenly rounded-2xl">
-        <div>
-          <h2>Add New Teacher</h2>
+      <div className="w-[98%] mx-auto justify-evenly rounded-2xl">
+        <div className="flex justify-center my-6">
+          <h2 className="text-3xl font-bold flex justify-center">
+            Add New Teacher
+          </h2>
         </div>
-        <div className="bg-gray-50">
-          <form action="POST" onSubmit={handleTeacherSubmit}>
+        <div className="bg-gray-50 gap-1.5 flex justify-center">
+          <form
+            action="POST"
+            onSubmit={handleTeacherSubmit}
+            className="flex gap-2"
+          >
             <input
               type="text"
               placeholder="Info"
@@ -75,6 +82,7 @@ const AddTeacher = () => {
           </form>
         </div>
       </div>
+      <Teachers />
     </>
   );
 };

@@ -8,6 +8,7 @@ import Home from "./Components/Home.jsx";
 import AddClass from "./Components/AddClass.jsx";
 import Teachers from "./Components/Teachers.jsx";
 import { ClassProvider } from "./ClassContext.jsx";
+import AddTeacher from "./Components/AddTeacher.jsx";
 
 const router = createHashRouter([
   {
@@ -17,7 +18,7 @@ const router = createHashRouter([
       { index: true, element: <Home /> },
       { path: "dashboard", element: <Dashboard /> },
       { path: "classes", element: <AddClass /> },
-      { path: "teachers", element: <Teachers /> },
+      { path: "teachers", element: <AddTeacher /> },
     ],
   },
 ]);

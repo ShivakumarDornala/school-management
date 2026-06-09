@@ -128,114 +128,114 @@ const teachers = [
 ];
 
 export const Teachers = () => {
-  return (
-    <div className="w-[98%] p-6 mx-auto">
-      <div className="mx-auto">
-        <h2 className="text-3xl font-bold flex justify-center mb-6">
-          Teachers
-        </h2>
-        <div className="bg-white rounded-lg shadow-sm">
-          <div className="">
-            <table className="w-full">
-              <thead className="bg-gray-50 border-b border-gray-200">
-                <tr>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Info
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Teacher ID
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Subjects
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Classes
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Phone
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Address
-                  </th>
-                  <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
-                    Actions
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-700">
-                {teachers.map((teacher) => (
-                  <tr
-                    key={teacher.id}
-                    className="hover:bg-gray-50 p-1 bg-white odd:bg-gray-100 even:bg-white"
-                  >
-                    <td className="px-6 py-4">
-                      <div className="flex items-center space-x-3">
-                        <img
-                          src={teacher.avatar}
-                          alt={teacher.name}
-                          className="w-10 h-10 rounded-full object-cover"
-                        />
-                        <div>
-                          <div className="font-medium text-gray-900">
-                            {teacher.name}
-                          </div>
-                          <div className="text-sm text-gray-500">
-                            {teacher.email}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      {teacher.teacherId}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      {teacher.subjects}
-                    </td>
-                    <td className="px-4 py-4 text-[13px] text-gray-900">
-                      {teacher.classes}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      {teacher.phone}
-                    </td>
-                    <td className="px-6 py-4 text-sm text-gray-900">
-                      {teacher.address}
-                    </td>
-                    <td className="px-6 py-4">
-                      <div className="flex items-center space-x-2">
-                        <Link to={`/teachers/${teacher.id}`}>
-                          <button className="p-2 text-green-600 hover:bg-green-100 cursor-pointer rounded-full transition-colors">
-                            <Phone size={16} />
-                          </button>
-                          <button className="p-2 text-blue-600 hover:bg-blue-100 cursor-pointer  rounded-full transition-colors">
-                            <FaAddressCard size={18} />
-                          </button>
-                          <button className="p-2 text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors">
-                            <Edit size={16} />
-                          </button>
-                        </Link>
-                        {/* <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
-                          <MessageCircle size={16} />
-                        </button> */}
-                        {/* <button className="p-2 text-green-600 hover:bg-green-50 rounded-full transition-colors">
-                          <Phone size={16} />
-                        </button>
-                        <button className="p-2 text-gray-600 hover:bg-gray-50 rounded-full transition-colors">
-                          <Edit size={16} />
-                        </button>
-                        <button className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors">
-                          <Trash2 size={16} />
-                        </button> */}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  // return (
+  // <div className="w-[98%] p-6 mx-auto">
+  //   <div className="mx-auto">
+  //     <h2 className="text-3xl font-bold flex justify-center mb-6">
+  //       Teachers
+  //     </h2>
+  //     <div className="bg-white rounded-lg shadow-sm">
+  //       <div className="">
+  //         <table className="w-full">
+  //           <thead className="bg-gray-50 border-b border-gray-200">
+  //             <tr>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Info
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Teacher ID
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Subjects
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Classes
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Phone
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Address
+  //               </th>
+  //               <th className="px-6 py-4 text-left text-[16px] font-medium text-gray-900">
+  //                 Actions
+  //               </th>
+  //             </tr>
+  //           </thead>
+  //           <tbody className="divide-y divide-gray-700">
+  //             {teachers.map((teacher) => (
+  //               <tr
+  //                 key={teacher.id}
+  //                 className="hover:bg-gray-50 p-1 bg-white odd:bg-gray-100 even:bg-white"
+  //               >
+  //                 <td className="px-6 py-4">
+  //                   <div className="flex items-center space-x-3">
+  //                     <img
+  //                       src={teacher.avatar}
+  //                       alt={teacher.name}
+  //                       className="w-10 h-10 rounded-full object-cover"
+  //                     />
+  //                     <div>
+  //                       <div className="font-medium text-gray-900">
+  //                         {teacher.name}
+  //                       </div>
+  //                       <div className="text-sm text-gray-500">
+  //                         {teacher.email}
+  //                       </div>
+  //                     </div>
+  //                   </div>
+  //                 </td>
+  //                 <td className="px-6 py-4 text-sm text-gray-900">
+  //                   {teacher.teacherId}
+  //                 </td>
+  //                 <td className="px-6 py-4 text-sm text-gray-900">
+  //                   {teacher.subjects}
+  //                 </td>
+  //                 <td className="px-4 py-4 text-[13px] text-gray-900">
+  //                   {teacher.classes}
+  //                 </td>
+  //                 <td className="px-6 py-4 text-sm text-gray-900">
+  //                   {teacher.phone}
+  //                 </td>
+  //                 <td className="px-6 py-4 text-sm text-gray-900">
+  //                   {teacher.address}
+  //                 </td>
+  //                 <td className="px-6 py-4">
+  //                   <div className="flex items-center space-x-2">
+  //                     <Link to={`/teachers/${teacher.id}`}>
+  //                       <button className="p-2 text-green-600 hover:bg-green-100 cursor-pointer rounded-full transition-colors">
+  //                         <Phone size={16} />
+  //                       </button>
+  //                       <button className="p-2 text-blue-600 hover:bg-blue-100 cursor-pointer  rounded-full transition-colors">
+  //                         <FaAddressCard size={18} />
+  //                       </button>
+  //                       <button className="p-2 text-red-600 hover:bg-red-100 cursor-pointer rounded-full transition-colors">
+  //                         <Edit size={16} />
+  //                       </button>
+  //                     </Link>
+  //                     {/* <button className="p-2 text-blue-600 hover:bg-blue-50 rounded-full transition-colors">
+  //                       <MessageCircle size={16} />
+  //                     </button> */}
+  //                     {/* <button className="p-2 text-green-600 hover:bg-green-50 rounded-full transition-colors">
+  //                       <Phone size={16} />
+  //                     </button>
+  //                     <button className="p-2 text-gray-600 hover:bg-gray-50 rounded-full transition-colors">
+  //                       <Edit size={16} />
+  //                     </button>
+  //                     <button className="p-2 text-red-600 hover:bg-red-50 rounded-full transition-colors">
+  //                       <Trash2 size={16} />
+  //                     </button> */}
+  //                   </div>
+  //                 </td>
+  //               </tr>
+  //             ))}
+  //           </tbody>
+  //         </table>
+  //       </div>
+  //     </div>
+  //   </div>
+  // </div>
+  // );
 };
 
 export default Teachers;
