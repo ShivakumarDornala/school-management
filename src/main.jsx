@@ -6,7 +6,7 @@ import { createHashRouter, RouterProvider } from "react-router-dom";
 import Dashboard from "./Components/Dashboard.jsx";
 import Home from "./Components/Home.jsx";
 import AddClass from "./Components/AddClass.jsx";
-import Teachers from "./Components/Teachers.jsx";
+import Teachers from "./Components/Teacher.jsx";
 import { ClassProvider } from "./ClassContext.jsx";
 import AddTeacher from "./Components/AddTeacher.jsx";
 
