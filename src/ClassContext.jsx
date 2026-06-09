@@ -1,12 +1,15 @@
 import { createContext, useReducer } from "react";
 
 export const ClassContext = createContext({
+  classes: [],
   teacher: [],
+  addclass: () => {},
+  deleteclass: () => {},
   addteacher: () => {},
-  deleteteaher: () => {},
+  deleteteacher: () => {},
 });
 
-const AddTeacherReducer = (currentTeachers, action) => {
+const AddclassReducer = (currentTeachers, action) => {
   let newTeachers = currentTeachers;
   if (action.type === "NEW_TEACHER") {
     newTeachers = [
@@ -25,10 +28,15 @@ const AddTeacherReducer = (currentTeachers, action) => {
   return newTeachers;
 };
 
-export const ClassProvider = ({ children }) => {
-  const [teacher, dispatchsetaddteacher] = useReducer(AddTeacherReducer, []);
+const AddteacherReducer = (currentTeachers, action) => {
+  let newTeachers = currentTeachers;
+};
 
-  const addteacher = (className, capacity, classTeacher) => {
+export const ClassProvider = ({ children }) => {
+  const [classes, dispatchsetaddclass] = useReducer(AddclassReducer, []);
+  const [teacher, dispatchsetaddteacher] = useReducer(AddteacherReducer, []);
+
+  const addclass = (className, capacity, classTeacher) => {
     const newTeacherAction = {
       type: "NEW_TEACHER",
       payload: {
@@ -37,33 +45,58 @@ export const ClassProvider = ({ children }) => {
         classTeacher,
       },
     };
-    dispatchsetaddteacher(newTeacherAction);
+    dispatchsetaddclass(newTeacherAction);
   };
 
-  const deleteteaher = (className) => {
+  const deleteclass = (className) => {
     const deleteTeacherAction = {
       type: "DELETE_TEACHER",
       payload: {
         className,
       },
     };
-    dispatchsetaddteacher(deleteTeacherAction);
+    dispatchsetaddclass(deleteTeacherAction);
   };
 
-  // const handleAddTeacher = (className, capacity, classTeacher) => {
-  //   console.log(`New Teacher Added ${className}, ${capacity}, ${classTeacher}`);
-  //   const addnewteacher = [
-  //     ...addteacher,
-  //     { name: className, capacity: capacity, Teacher: classTeacher },
-  //   ];
-  //   dispatchsetaddteacher(addnewteacher);
-  // };
+  const addteacher = (info, subjects, classes, number, details) => {
+    const addteacherAction = {
+      type: "ADD_TEACHER",
+      payload: {
+        info,
+        subjects,
+        classes,
+        number,
+        details,
+      },
+    };
+    dispatchsetaddteacher(addteacherAction);
+  };
 
-  // const handleDeleteTeacher = () => {};
+  const deleteteacher = () => {};
 
   return (
-    <ClassContext.Provider value={{ teacher, addteacher, deleteteaher }}>
+    <ClassContext.Provider
+      value={{
+        classes,
+        teacher,
+        addclass,
+        deleteclass,
+        addteacher,
+        deleteteacher,
+      }}
+    >
       {children}
     </ClassContext.Provider>
   );
 };
+
+// const handleAddTeacher = (className, capacity, classTeacher) => {
+//   console.log(`New Teacher Added ${className}, ${capacity}, ${classTeacher}`);
+//   const addnewteacher = [
+//     ...addteacher,
+//     { name: className, capacity: capacity, Teacher: classTeacher },
+//   ];
+//   dispatchsetaddteacher(addnewteacher);
+// };
+
+// const handleDeleteTeacher = () => {};

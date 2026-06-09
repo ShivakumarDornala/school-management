@@ -3,7 +3,7 @@ import Class from "./Class";
 import { ClassContext } from "../ClassContext.jsx";
 
 const Classes = () => {
-  const { teacher } = useContext(ClassContext);
+  const { classes } = useContext(ClassContext);
 
   return (
     <div className="bg-gray-50 rounded-2xl p-4">
@@ -19,13 +19,13 @@ const Classes = () => {
           </thead>
 
           <tbody className="divide-y divide-gray-200">
-            {teacher.map((item, index) => (
+            {classes.map((item, index) => (
               <Class
                 key={item.name}
                 name={item.name}
                 capacity={item.capacity}
                 Teacher={item.Teacher}
-                isLast={index === teacher.length - 1}
+                isLast={index === classes.length - 1}
               />
             ))}
           </tbody>

@@ -4,18 +4,18 @@ import { ClassContext } from "../ClassContext.jsx";
 import Classes from "./Classes.jsx";
 
 const AddClass = () => {
-  const { addteacher } = useContext(ClassContext);
+  const { addclass } = useContext(ClassContext);
   const addClassName = useRef();
   const addCapacity = useRef();
   const addClassTeacher = useRef();
 
-  const handleSubmit = (e) => {
+  const handleClassSubmit = (e) => {
     e.preventDefault();
     const className = addClassName.current.value;
     const capacity = addCapacity.current.value;
     const classTeacher = addClassTeacher.current.value;
 
-    addteacher(className, capacity, classTeacher);
+    addclass(className, capacity, classTeacher);
 
     addClassName.current.value = "";
     addCapacity.current.value = "";
@@ -31,7 +31,7 @@ const AddClass = () => {
           </h2>
         </div>
         <div className="bg-gray-50">
-          <form onSubmit={handleSubmit} className="flex gap-2 flex-wrap">
+          <form onSubmit={handleClassSubmit} className="flex gap-2 flex-wrap">
             <input
               type="text"
               placeholder="Enter Classname"
@@ -57,7 +57,7 @@ const AddClass = () => {
               type="submit"
               className="bg-green-600 text-white rounded py-2 px-6 cursor-pointer hover:bg-green-700"
             >
-              Add Teacher
+              Add Class
             </button>
           </form>
         </div>

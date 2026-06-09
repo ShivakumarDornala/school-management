@@ -3,7 +3,7 @@ import { Trash2, Edit } from "lucide-react";
 import { ClassContext } from "../ClassContext";
 
 const Class = ({ name, capacity, Teacher }) => {
-  const { deleteteaher } = useContext(ClassContext);
+  const { deleteclass } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
       <td className="p-4 ">{name}</td>
@@ -18,7 +18,7 @@ const Class = ({ name, capacity, Teacher }) => {
 
           <button
             className="text-red-600 hover:bg-red-100 rounded-full p-2 cursor-pointer"
-            onClick={() => deleteteaher(name)}
+            onClick={() => deleteclass(name)}
           >
             <Trash2 size={16} />
           </button>
