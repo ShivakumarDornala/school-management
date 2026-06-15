@@ -41,7 +41,6 @@ const AddteacherReducer = (currentTeachers, action) => {
         details: action.payload.details,
       },
     ];
-    console.log("DSK");
   } else if (action.type === "DELETE_TEACHER") {
     newTeachers = currentTeachers.filter(
       (item) => item.info !== action.payload.info,
@@ -55,7 +54,7 @@ export const ClassProvider = ({ children }) => {
   const [teacher, dispatchsetaddteacher] = useReducer(AddteacherReducer, []);
 
   const addclass = (className, capacity, classTeacher) => {
-    const newTeacherAction = {
+    const newClassAction = {
       type: "NEW_CLASS",
       payload: {
         className,
@@ -63,17 +62,17 @@ export const ClassProvider = ({ children }) => {
         classTeacher,
       },
     };
-    dispatchsetaddclass(newTeacherAction);
+    dispatchsetaddclass(newClassAction);
   };
 
   const deleteclass = (className) => {
-    const deleteTeacherAction = {
+    const deleteClassAction = {
       type: "DELETE_CLASS",
       payload: {
         className,
       },
     };
-    dispatchsetaddclass(deleteTeacherAction);
+    dispatchsetaddclass(deleteClassAction);
   };
 
   const addteacher = (info, subjects, classes, number, details) => {
@@ -93,7 +92,15 @@ export const ClassProvider = ({ children }) => {
     dispatchsetaddteacher(addteacherAction);
   };
 
-  const deleteteacher = () => {};
+  const deleteteacher = (info) => {
+    const deleteteacherAction = {
+      type: "DELETE_TEACHER",
+      payload: {
+        info,
+      },
+    };
+    dispatchsetaddteacher(deleteteacherAction);
+  };
 
   return (
     <ClassContext.Provider

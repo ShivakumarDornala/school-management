@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Trash2, Edit } from "lucide-react";
+import { ClassContext } from "../ClassContext";
 
 export const Teacher = ({ info, subjects, classes, number, details }) => {
+  const { deleteteacher } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
       <td className="p-4 ">{info}</td>
@@ -18,7 +20,7 @@ export const Teacher = ({ info, subjects, classes, number, details }) => {
 
           <button
             className="text-red-600 hover:bg-red-100 rounded-full p-2 cursor-pointer"
-            //onClick={() => deleteclass(name)}
+            onClick={() => deleteteacher(info)}
           >
             <Trash2 size={16} />
           </button>

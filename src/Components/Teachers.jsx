@@ -14,8 +14,8 @@ const Teachers = () => {
               <th className="p-4 rounded-tl-2xl">Info</th>
               <th className="p-4">Subjects</th>
               <th className="p-4">Classes</th>
-              <th className="p-4 text-center rounded-tr-2xl">Number</th>
-              <th className="p-4 text-center rounded-tr-2xl">Details</th>
+              <th className="p-4 ">Number</th>
+              <th className="p-4 ">Details</th>
               <th className="p-4 text-center rounded-tr-2xl">Actions</th>
             </tr>
           </thead>
