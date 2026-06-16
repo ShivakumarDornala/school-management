@@ -6,7 +6,7 @@ const Classes = () => {
   const { classes } = useContext(ClassContext);
 
   return (
-    <div className="bg-gray-50 rounded-2xl p-4">
+    <div className="rounded-2xl p-4">
       <div className="w-[98%] mx-auto rounded-2xl overflow-hidden shadow-sm">
         <table className="w-full mx-auto border-separate border-spacing-0">
           <thead>

@@ -20,7 +20,7 @@ const AddclassReducer = (currentTeachers, action) => {
         Teacher: action.payload.classTeacher,
       },
     ];
-  } else if (action.type === "DELETE_TEACHER") {
+  } else if (action.type === "DELETE_CLASS") {
     newTeachers = currentTeachers.filter(
       (item) => item.name !== action.payload.className,
     );

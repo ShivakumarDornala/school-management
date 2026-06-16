@@ -29,7 +29,7 @@ const Header = () => {
               <Link to="Dashboard">Students</Link>
             </li>
             <li className="hover:text-blue-700 font-medium">
-              <Link to="Dashboard">Announcements</Link>
+              <Link to="Dashboard">Others</Link>
             </li>
           </ul>
         </div>
