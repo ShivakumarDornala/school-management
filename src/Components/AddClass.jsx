@@ -96,7 +96,7 @@ const AddClass = () => {
 
                   <div className="flex justify-between">
                     <button
-                      type="submit" // ✅ removed duplicate onClick
+                      type="submit"
                       className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
                     >
                       Save
