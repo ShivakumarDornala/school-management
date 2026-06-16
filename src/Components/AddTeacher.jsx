@@ -50,74 +50,76 @@ const AddTeacher = () => {
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
               onClick={() => setShowForm(false)}
             />
-            <div className="fixed inset-0 z-40 bg-gray-50 gap-1.5 flex items-center justify-center">
+            <div className="fixed inset-0 z-50  flex items-center justify-center">
               <div className="relative bg-white rounded-lg shadow-xl p-6 w-[90%] max-w-4xl">
-                <div>
+                <div className="flex justify-between">
                   <h2 className="my-3 text-xl font-semibold">Add Teacher</h2>
                   <button
                     onClick={() => setShowForm(false)}
-                    className="flex items-center justify-center absolute top-4 right-4 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
+                    className="flex items-center justify-center absolute top-7 right-6 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
                   >
                     ×
                   </button>
                 </div>
-                <form
-                  action="POST"
-                  onSubmit={handleTeacherSubmit}
-                  className="flex gap-2"
-                >
-                  <input
-                    type="text"
-                    placeholder="Info"
-                    className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
-                    required
-                    ref={addInfo}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Enter Subjects"
-                    className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
-                    required
-                    ref={addSubjects}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Enter Classes"
-                    className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
-                    required
-                    ref={addClasses}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Contact Number"
-                    className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
-                    required
-                    ref={addNumber}
-                  />
-                  <input
-                    type="text"
-                    placeholder="Address Deatails"
-                    className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
-                    required
-                    ref={addDetails}
-                  />
-                  <div className="flex justify-between">
-                    <button
-                      type="submit"
-                      className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
-                    >
-                      Save
-                    </button>
+                <div className="flex">
+                  <form
+                    action="POST"
+                    onSubmit={handleTeacherSubmit}
+                    className="flex-col gap-2"
+                  >
+                    <input
+                      type="text"
+                      placeholder="Info"
+                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      required
+                      ref={addInfo}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter Subjects"
+                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      required
+                      ref={addSubjects}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Enter Classes"
+                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      required
+                      ref={addClasses}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Contact Number"
+                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      required
+                      ref={addNumber}
+                    />
+                    <input
+                      type="text"
+                      placeholder="Address Deatails"
+                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      required
+                      ref={addDetails}
+                    />
+                    <div className="flex justify-between">
+                      <button
+                        type="submit"
+                        className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
+                      >
+                        Save
+                      </button>
 
-                    <button
-                      type="button"
-                      onClick={() => setShowForm(false)}
-                      className="rounded-lg bg-red-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-red-600"
-                    >
-                      Cancel
-                    </button>
-                  </div>
-                </form>
+                      <button
+                        type="button"
+                        onClick={() => setShowForm(false)}
+                        className="rounded-lg bg-red-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-red-600"
+                      >
+                        Cancel
+                      </button>
+                    </div>
+                  </form>
+                </div>
               </div>
             </div>
           </>
