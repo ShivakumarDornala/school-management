@@ -30,8 +30,8 @@ const AddTeacher = () => {
 
   return (
     <>
-      <div className="w-[98%] mx-auto justify-evenly bg-[#fffffff4] p-4 rounded-2xl my-5">
-        <div className="w-[98%] mx-auto flex justify-between my-6">
+      <div className="w-[96%] mx-auto justify-evenly bg-[#fffffff4] p-4 rounded-2xl my-5">
+        <div className="w-[96%] mx-auto flex justify-between my-3">
           <h2 className="text-3xl font-bold flex justify-center">
             All Teachers
           </h2>
