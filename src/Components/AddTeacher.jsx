@@ -40,7 +40,7 @@ const AddTeacher = () => {
             class="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
             onClick={() => setShowForm(!showForm)}
           >
-            <FaPlus />
+            <FaPlus className="text-white" />
           </button>
         </div>
 
