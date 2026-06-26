@@ -5,13 +5,24 @@ import Classes from "./Classes.jsx";
 import { FaPlus } from "react-icons/fa6";
 
 const AddClass = () => {
-  const { addclass } = useContext(ClassContext);
+  const { addclass, editclass } = useContext(ClassContext);
 
   const [showForm, setShowForm] = useState(false);
+  const [editingClass, seteditigClass] = useState(null);
 
   const addClassName = useRef();
   const addCapacity = useRef();
   const addClassTeacher = useRef();
+
+  const handleEditclass = (cls) => {
+    seteditigClass(cls);
+    setShowForm(true);
+    setTimeout(() => {
+      addClassName.current.value = cls.className;
+      addCapacity.current.value = cls.capacity;
+      addClassTeacher.current.value = cls.capacity;
+    }, 0);
+  };
 
   const handleClassSubmit = (e) => {
     e.preventDefault();
@@ -19,13 +30,22 @@ const AddClass = () => {
     const capacity = addCapacity.current.value;
     const classTeacher = addClassTeacher.current.value;
 
-    addclass(className, capacity, classTeacher);
+    if (editingClass) {
+      editclass(editingClass.id, className, capacity, classTeacher);
+    } else {
+      addclass(className, capacity, classTeacher);
+    }
 
     addClassName.current.value = "";
     addCapacity.current.value = "";
     addClassTeacher.current.value = "";
 
+    seteditigClass(null);
     setShowForm(false);
+  };
+  const handleClose = () => {
+    setShowForm(false);
+    seteditigClass(null);
   };
 
   return (
@@ -104,7 +124,7 @@ const AddClass = () => {
 
                     <button
                       type="button"
-                      onClick={() => setShowForm(false)}
+                      onClick={handleClose}
                       className="rounded-lg bg-red-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-red-600"
                     >
                       Cancel
@@ -115,7 +135,7 @@ const AddClass = () => {
             </div>
           </>
         )}
-        <Classes />
+        <Classes onEdit={handleEditclass} />
       </div>
     </>
   );
