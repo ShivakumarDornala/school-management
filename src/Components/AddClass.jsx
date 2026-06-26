@@ -54,8 +54,11 @@ const AddClass = () => {
         <div className="flex justify-between w-[96%] mx-auto my-3">
           <h2 className="text-3xl font-bold flex justify-start">All Classes</h2>
           <button
-            class="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
-            onClick={() => setShowForm(!showForm)}
+            className="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
+            onClick={() => {
+              setEditingClass(null);
+              setShowForm(!showForm);
+            }}
           >
             <FaPlus className="text-white" />
           </button>
@@ -65,14 +68,16 @@ const AddClass = () => {
           <>
             <div
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-              onClick={() => setShowForm(false)}
+              onClick={handleClose}
             />
             <div className="fixed inset-0 z-50 flex items-center justify-center">
               <div className="relative bg-white rounded-lg shadow-xl p-6 w-[50%] max-w-4xl">
-                <h2 className="mb-4 text-xl font-semibold">Add Class</h2>
+                <h2 className="mb-4 text-xl font-semibold">
+                  {editingClass ? "Edit Class" : "Add Class"}
+                </h2>
 
                 <button
-                  onClick={() => setShowForm(false)}
+                  onClick={handleClose}
                   className="flex items-center justify-center absolute top-4 right-4 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
                 >
                   ×
@@ -119,7 +124,7 @@ const AddClass = () => {
                       type="submit"
                       className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
                     >
-                      Save
+                      {editingClass ? "Update" : "Save"}
                     </button>
 
                     <button
