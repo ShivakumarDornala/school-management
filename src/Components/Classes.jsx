@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Class from "./Class";
 import { ClassContext } from "../ClassContext.jsx";
 
-const Classes = ({ onEdit }) => {
+const Classes = () => {
   const { classes } = useContext(ClassContext);
 
   return (
@@ -26,7 +26,6 @@ const Classes = ({ onEdit }) => {
                 capacity={item.capacity}
                 Teacher={item.Teacher}
                 isLast={index === classes.length - 1}
-                onEdit={() => onEdit()}
               />
             ))}
           </tbody>

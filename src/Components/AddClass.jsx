@@ -5,24 +5,13 @@ import Classes from "./Classes.jsx";
 import { FaPlus } from "react-icons/fa6";
 
 const AddClass = () => {
-  const { addclass, editclass } = useContext(ClassContext);
+  const { addclass } = useContext(ClassContext);
 
   const [showForm, setShowForm] = useState(false);
-  const [editingClass, seteditigClass] = useState(null);
 
   const addClassName = useRef();
   const addCapacity = useRef();
   const addClassTeacher = useRef();
-
-  const handleEditclass = (cls) => {
-    seteditigClass(cls);
-    setShowForm(true);
-    setTimeout(() => {
-      addClassName.current.value = cls.className;
-      addCapacity.current.value = cls.capacity;
-      addClassTeacher.current.value = cls.capacity;
-    }, 0);
-  };
 
   const handleClassSubmit = (e) => {
     e.preventDefault();
@@ -30,22 +19,13 @@ const AddClass = () => {
     const capacity = addCapacity.current.value;
     const classTeacher = addClassTeacher.current.value;
 
-    if (editingClass) {
-      editclass(editingClass.id, className, capacity, classTeacher);
-    } else {
-      addclass(className, capacity, classTeacher);
-    }
+    addclass(className, capacity, classTeacher);
 
     addClassName.current.value = "";
     addCapacity.current.value = "";
     addClassTeacher.current.value = "";
 
-    seteditigClass(null);
     setShowForm(false);
-  };
-  const handleClose = () => {
-    setShowForm(false);
-    seteditigClass(null);
   };
 
   return (
@@ -54,11 +34,8 @@ const AddClass = () => {
         <div className="flex justify-between w-[96%] mx-auto my-3">
           <h2 className="text-3xl font-bold flex justify-start">All Classes</h2>
           <button
-            className="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
-            onClick={() => {
-              setEditingClass(null);
-              setShowForm(!showForm);
-            }}
+            class="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
+            onClick={() => setShowForm(!showForm)}
           >
             <FaPlus className="text-white" />
           </button>
@@ -68,16 +45,14 @@ const AddClass = () => {
           <>
             <div
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-              onClick={handleClose}
+              onClick={() => setShowForm(false)}
             />
             <div className="fixed inset-0 z-50 flex items-center justify-center">
               <div className="relative bg-white rounded-lg shadow-xl p-6 w-[50%] max-w-4xl">
-                <h2 className="mb-4 text-xl font-semibold">
-                  {editingClass ? "Edit Class" : "Add Class"}
-                </h2>
+                <h2 className="mb-4 text-xl font-semibold">Add Class</h2>
 
                 <button
-                  onClick={handleClose}
+                  onClick={() => setShowForm(false)}
                   className="flex items-center justify-center absolute top-4 right-4 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
                 >
                   ×
@@ -124,12 +99,12 @@ const AddClass = () => {
                       type="submit"
                       className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
                     >
-                      {editingClass ? "Update" : "Save"}
+                      Save
                     </button>
 
                     <button
                       type="button"
-                      onClick={handleClose}
+                      onClick={() => setShowForm(false)}
                       className="rounded-lg bg-red-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-red-600"
                     >
                       Cancel
@@ -140,7 +115,7 @@ const AddClass = () => {
             </div>
           </>
         )}
-        <Classes onEdit={handleEditclass} />
+        <Classes />
       </div>
     </>
   );

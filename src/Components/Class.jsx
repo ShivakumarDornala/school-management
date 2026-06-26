@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Trash2, Edit } from "lucide-react";
 import { ClassContext } from "../ClassContext";
 
-const Class = ({ name, capacity, Teacher, onEdit }) => {
+const Class = ({ name, capacity, Teacher }) => {
   const { deleteclass } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
@@ -12,10 +12,7 @@ const Class = ({ name, capacity, Teacher, onEdit }) => {
 
       <td className="p-4 ">
         <div className="flex justify-center gap-2">
-          <button
-            onClick={onEdit}
-            className="text-blue-600 hover:bg-blue-100 rounded-full p-2 cursor-pointer"
-          >
+          <button className="text-blue-600 hover:bg-blue-100 rounded-full p-2 cursor-pointer">
             <Edit size={16} />
           </button>
 
