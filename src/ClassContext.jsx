@@ -31,6 +31,7 @@ const AddclassReducer = (currentTeachers, action) => {
       item.name === action.payload.originalName
         ? {
             ...item,
+            name: action.payload.className,
             capacity: action.payload.capacity,
             Teacher: action.payload.classTeacher,
           }
@@ -90,10 +91,11 @@ export const ClassProvider = ({ children }) => {
     dispatchsetaddclass(newClassAction);
   };
 
-  const editclass = (className, capacity, classTeacher) => {
+  const editclass = (originalName, className, capacity, classTeacher) => {
     const editClassAction = {
       type: "UPDATE_CLASS",
       payload: {
+        originalName,
         className,
         capacity,
         classTeacher,
