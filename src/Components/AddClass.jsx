@@ -14,7 +14,7 @@ const AddClass = () => {
   const addCapacity = useRef();
   const addClassTeacher = useRef();
 
-  const handleEditSubmit = (classItem) => {
+  const handleEditClassSubmit = (classItem) => {
     setEditing(classItem);
     setShowForm(true);
   };
@@ -141,7 +141,7 @@ const AddClass = () => {
             </div>
           </>
         )}
-        <Classes onEdit={handleEditSubmit} />
+        <Classes onEdit={handleEditClassSubmit} />
       </div>
     </>
   );

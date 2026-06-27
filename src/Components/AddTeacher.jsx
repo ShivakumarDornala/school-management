@@ -7,12 +7,18 @@ import { FaPlus } from "react-icons/fa6";
 const AddTeacher = () => {
   const { addteacher } = useContext(ClassContext);
   const [showForm, setShowForm] = useState(false);
+  const [editing, setEditing] = useState(null);
 
   const addInfo = useRef();
   const addSubjects = useRef();
   const addClasses = useRef();
   const addNumber = useRef();
   const addDetails = useRef();
+
+  const handleEditTeacherSubmit = (classItem) => {
+    setEditing(classItem);
+    setShowForm(true);
+  };
 
   const handleTeacherSubmit = (e) => {
     e.preventDefault();
@@ -143,7 +149,7 @@ const AddTeacher = () => {
             </div>
           </>
         )}
-        <Teachers />
+        <Teachers onEdit={handleEditTeacherSubmit} />
       </div>
     </>
   );

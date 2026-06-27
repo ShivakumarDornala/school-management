@@ -6,11 +6,11 @@ export const Teacher = ({ info, subjects, classes, number, details }) => {
   const { deleteteacher } = useContext(ClassContext);
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
-      <td className="p-4 ">{info}</td>
+      <td className="p-4">{info}</td>
       <td className="p-4">{subjects}</td>
-      <td className="p-4 font-semibold">{classes}</td>
-      <td className="p-4 font-semibold">{number}</td>
-      <td className="p-4 font-semibold">{details}</td>
+      <td className="p-4">{classes}</td>
+      <td className="p-4">{number}</td>
+      <td className="p-4">{details}</td>
 
       <td className="p-4 ">
         <div className="flex justify-center gap-2">
