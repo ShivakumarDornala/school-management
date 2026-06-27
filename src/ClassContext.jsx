@@ -27,7 +27,7 @@ const AddclassReducer = (currentTeachers, action) => {
     );
   } else if (action.type === "UPDATE_CLASS") {
     newTeachers = currentTeachers.map((item) =>
-      item.name === action.payload.className
+      item.name === action.payload.originalName
         ? {
             ...item,
             capacity: action.payload.capacity,
@@ -60,29 +60,6 @@ const AddteacherReducer = (currentTeachers, action) => {
   return newTeachers;
 };
 
-const AddeditReducer = (currentTeachers, action) => {
-  let newTeachers = currentTeachers;
-  if (action.type === "ADD_TEACHER") {
-    newTeachers = [
-      ...currentTeachers,
-      {
-        info: action.payload.info,
-        subjects: action.payload.subjects,
-        classes: action.payload.classes,
-        number: action.payload.number,
-        details: action.payload.details,
-      },
-    ];
-  } else if (action.type === "DELETE_TEACHER") {
-    newTeachers = currentTeachers.filter(
-      (item) => item.info !== action.payload.info,
-    );
-  }
-  return newTeachers;
-};
-
-//const AddeditReducer = () => {};
-
 export const ClassProvider = ({ children }) => {
   const [classes, dispatchsetaddclass] = useReducer(AddclassReducer, []);
   const [teacher, dispatchsetaddteacher] = useReducer(AddteacherReducer, []);
@@ -99,10 +76,11 @@ export const ClassProvider = ({ children }) => {
     dispatchsetaddclass(newClassAction);
   };
 
-  const editclass = (className, capacity, classTeacher) => {
+  const editclass = (originalName, className, capacity, classTeacher) => {
     const editClassAction = {
       type: "UPDATE_CLASS",
       payload: {
+        originalName,
         className,
         capacity,
         classTeacher,
@@ -122,9 +100,9 @@ export const ClassProvider = ({ children }) => {
   };
 
   const addteacher = (info, subjects, classes, number, details) => {
-    console.log(
-      `New Teacher Added ${info}, ${subjects}, ${classes}, ${number}, ${details}`,
-    );
+    // console.log(
+    //   `New Teacher Added ${info}, ${subjects}, ${classes}, ${number}, ${details}`,
+    // );
     const addteacherAction = {
       type: "ADD_TEACHER",
       payload: {

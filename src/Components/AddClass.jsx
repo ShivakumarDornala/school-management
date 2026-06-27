@@ -26,7 +26,7 @@ const AddClass = () => {
     const classTeacher = addClassTeacher.current.value;
 
     if (editing) {
-      editclass(className, capacity, classTeacher);
+      editclass(editing.name, className, capacity, classTeacher);
       setEditing(null);
     } else {
       addclass(className, capacity, classTeacher);
