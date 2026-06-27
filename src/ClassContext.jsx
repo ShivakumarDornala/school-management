@@ -7,6 +7,7 @@ export const ClassContext = createContext({
   deleteclass: () => {},
   addteacher: () => {},
   deleteteacher: () => {},
+  editclass: () => {},
 });
 
 const AddclassReducer = (currentTeachers, action) => {
@@ -23,6 +24,16 @@ const AddclassReducer = (currentTeachers, action) => {
   } else if (action.type === "DELETE_CLASS") {
     newTeachers = currentTeachers.filter(
       (item) => item.name !== action.payload.className,
+    );
+  } else if (action.type === "UPDATE_CLASS") {
+    newTeachers = currentTeachers.map((item) =>
+      item.name === action.payload.className
+        ? {
+            ...item,
+            capacity: action.payload.capacity,
+            Teacher: action.payload.classTeacher,
+          }
+        : item,
     );
   }
   return newTeachers;
@@ -49,6 +60,29 @@ const AddteacherReducer = (currentTeachers, action) => {
   return newTeachers;
 };
 
+const AddeditReducer = (currentTeachers, action) => {
+  let newTeachers = currentTeachers;
+  if (action.type === "ADD_TEACHER") {
+    newTeachers = [
+      ...currentTeachers,
+      {
+        info: action.payload.info,
+        subjects: action.payload.subjects,
+        classes: action.payload.classes,
+        number: action.payload.number,
+        details: action.payload.details,
+      },
+    ];
+  } else if (action.type === "DELETE_TEACHER") {
+    newTeachers = currentTeachers.filter(
+      (item) => item.info !== action.payload.info,
+    );
+  }
+  return newTeachers;
+};
+
+//const AddeditReducer = () => {};
+
 export const ClassProvider = ({ children }) => {
   const [classes, dispatchsetaddclass] = useReducer(AddclassReducer, []);
   const [teacher, dispatchsetaddteacher] = useReducer(AddteacherReducer, []);
@@ -63,6 +97,18 @@ export const ClassProvider = ({ children }) => {
       },
     };
     dispatchsetaddclass(newClassAction);
+  };
+
+  const editclass = (className, capacity, classTeacher) => {
+    const editClassAction = {
+      type: "UPDATE_CLASS",
+      payload: {
+        className,
+        capacity,
+        classTeacher,
+      },
+    };
+    dispatchsetaddclass(editClassAction);
   };
 
   const deleteclass = (className) => {
@@ -111,6 +157,7 @@ export const ClassProvider = ({ children }) => {
         deleteclass,
         addteacher,
         deleteteacher,
+        editclass,
       }}
     >
       {children}
