@@ -30,7 +30,7 @@ const AddTeacher = () => {
     const details = addDetails.current.value;
 
     if (editing) {
-      editteacher(editing.name, info, subjects, classes, number, details);
+      editteacher(editing.info, info, subjects, classes, number, details);
       setEditing(null);
     } else {
       addteacher(info, subjects, classes, number, details);
@@ -47,11 +47,11 @@ const AddTeacher = () => {
           </h2>
 
           <button
-            class="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
-             onClick={() => {
-                setShowForm(false);
-                setEditing(null);
-              }}
+            className="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
+            onClick={() => {
+              setShowForm(true);
+              setEditing(null);
+            }}
           >
             <FaPlus className="text-white" />
           </button>
@@ -61,7 +61,7 @@ const AddTeacher = () => {
           <>
             <div
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-               onClick={() => {
+              onClick={() => {
                 setShowForm(false);
                 setEditing(null);
               }}
@@ -74,7 +74,10 @@ const AddTeacher = () => {
                 </h2>
 
                 <button
-                  onClick={() => setShowForm(false)}
+                  onClick={() => {
+                    setShowForm(false);
+                    setEditing(null);
+                  }}
                   className="absolute top-4 right-4 flex items-center justify-center text-2xl hover:bg-gray-400 px-2 rounded-full cursor-pointer"
                 >
                   ×

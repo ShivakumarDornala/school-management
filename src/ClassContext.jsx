@@ -57,9 +57,9 @@ const AddteacherReducer = (currentTeachers, action) => {
     newTeachers = currentTeachers.filter(
       (item) => item.info !== action.payload.info,
     );
-  } else if (action.type === "UPDATE_CLASS") {
+  } else if (action.type === "UPDATE_TEACHER") {
     newTeachers = currentTeachers.map((item) =>
-      item.name === action.payload.originalName
+      item.info === action.payload.originalName
         ? {
             ...item,
             info: action.payload.info,
@@ -90,11 +90,10 @@ export const ClassProvider = ({ children }) => {
     dispatchsetaddclass(newClassAction);
   };
 
-  const editclass = (originalName, className, capacity, classTeacher) => {
+  const editclass = (className, capacity, classTeacher) => {
     const editClassAction = {
       type: "UPDATE_CLASS",
       payload: {
-        originalName,
         className,
         capacity,
         classTeacher,
@@ -149,7 +148,7 @@ export const ClassProvider = ({ children }) => {
         details,
       },
     };
-    dispatchsetaddclass(editTeacherAction);
+    dispatchsetaddteacher(editTeacherAction);
   };
 
   const deleteteacher = (info) => {

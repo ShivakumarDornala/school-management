@@ -11,6 +11,7 @@ export const Teacher = ({
   onEdit,
 }) => {
   const { deleteteacher } = useContext(ClassContext);
+
   return (
     <tr className="hover:bg-gray-50 odd:bg-gray-100 even:bg-white">
       <td className="p-4">{info}</td>
@@ -19,7 +20,7 @@ export const Teacher = ({
       <td className="p-4">{number}</td>
       <td className="p-4">{details}</td>
 
-      <td className="p-4 ">
+      <td className="p-4">
         <div className="flex justify-center gap-2">
           <button
             onClick={() => onEdit({ info, subjects, classes, number, details })}
@@ -29,8 +30,8 @@ export const Teacher = ({
           </button>
 
           <button
-            className="text-red-600 hover:bg-red-100 rounded-full p-2 cursor-pointer"
             onClick={() => deleteteacher(info)}
+            className="text-red-600 hover:bg-red-100 rounded-full p-2 cursor-pointer"
           >
             <Trash2 size={16} />
           </button>

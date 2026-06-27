@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Teacher from "./Teacher";
 import { ClassContext } from "../ClassContext";
 
-const Teachers = (onEdit) => {
+const Teachers = ({ onEdit }) => {
   const { teacher } = useContext(ClassContext);
 
   return (
