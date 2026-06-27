@@ -46,7 +46,10 @@ const AddClass = () => {
           <h2 className="text-3xl font-bold flex justify-start">All Classes</h2>
           <button
             className="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
-            onClick={() => setShowForm(!showForm)}
+            onClick={() => {
+              setShowForm(false);
+              setEditing(null);
+            }}
           >
             <FaPlus className="text-white" />
           </button>
@@ -68,10 +71,7 @@ const AddClass = () => {
                 </h2>
 
                 <button
-                  onClick={() => {
-                    setShowForm(false);
-                    setEditing(null);
-                  }}
+                  onClick={() => setShowForm(!showForm)}
                   className="flex items-center justify-center absolute top-4 right-4 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
                 >
                   ×

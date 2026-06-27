@@ -8,6 +8,7 @@ export const ClassContext = createContext({
   addteacher: () => {},
   deleteteacher: () => {},
   editclass: () => {},
+  editteacher: () => {},
 });
 
 const AddclassReducer = (currentTeachers, action) => {
@@ -55,6 +56,19 @@ const AddteacherReducer = (currentTeachers, action) => {
   } else if (action.type === "DELETE_TEACHER") {
     newTeachers = currentTeachers.filter(
       (item) => item.info !== action.payload.info,
+    );
+  } else if (action.type === "UPDATE_CLASS") {
+    newTeachers = currentTeachers.map((item) =>
+      item.name === action.payload.originalName
+        ? {
+            ...item,
+            info: action.payload.info,
+            subjects: action.payload.subjects,
+            classes: action.payload.classes,
+            number: action.payload.number,
+            details: action.payload.details,
+          }
+        : item,
     );
   }
   return newTeachers;
@@ -116,6 +130,28 @@ export const ClassProvider = ({ children }) => {
     dispatchsetaddteacher(addteacherAction);
   };
 
+  const editteacher = (
+    originalName,
+    info,
+    subjects,
+    classes,
+    number,
+    details,
+  ) => {
+    const editTeacherAction = {
+      type: "UPDATE_TEACHER",
+      payload: {
+        originalName,
+        info,
+        subjects,
+        classes,
+        number,
+        details,
+      },
+    };
+    dispatchsetaddclass(editTeacherAction);
+  };
+
   const deleteteacher = (info) => {
     const deleteteacherAction = {
       type: "DELETE_TEACHER",
@@ -136,6 +172,7 @@ export const ClassProvider = ({ children }) => {
         addteacher,
         deleteteacher,
         editclass,
+        editteacher,
       }}
     >
       {children}

@@ -5,7 +5,7 @@ import Teachers from "./Teachers";
 import { FaPlus } from "react-icons/fa6";
 
 const AddTeacher = () => {
-  const { addteacher } = useContext(ClassContext);
+  const { addteacher, editteacher } = useContext(ClassContext);
   const [showForm, setShowForm] = useState(false);
   const [editing, setEditing] = useState(null);
 
@@ -29,8 +29,12 @@ const AddTeacher = () => {
     const number = addNumber.current.value;
     const details = addDetails.current.value;
 
-    addteacher(info, subjects, classes, number, details);
-
+    if (editing) {
+      editteacher(editing.name, info, subjects, classes, number, details);
+      setEditing(null);
+    } else {
+      addteacher(info, subjects, classes, number, details);
+    }
     setShowForm(false);
   };
 
@@ -44,7 +48,10 @@ const AddTeacher = () => {
 
           <button
             class="w-10 h-10 font-semibold rounded-full bg-blue-500 flex items-center justify-center hover:cursor-pointer"
-            onClick={() => setShowForm(!showForm)}
+             onClick={() => {
+                setShowForm(false);
+                setEditing(null);
+              }}
           >
             <FaPlus className="text-white" />
           </button>
@@ -54,12 +61,17 @@ const AddTeacher = () => {
           <>
             <div
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
-              onClick={() => setShowForm(false)}
+               onClick={() => {
+                setShowForm(false);
+                setEditing(null);
+              }}
             />
 
             <div className="fixed inset-0 z-50 flex items-center justify-center">
               <div className="relative bg-white rounded-lg shadow-xl p-6 w-[50%] max-w-4xl">
-                <h2 className="mb-4 text-xl font-semibold">Add Teacher</h2>
+                <h2 className="mb-4 text-xl font-semibold">
+                  {editing ? "Edit Teacher" : "Add Teacher"}
+                </h2>
 
                 <button
                   onClick={() => setShowForm(false)}
@@ -76,6 +88,7 @@ const AddTeacher = () => {
                     <input
                       type="text"
                       placeholder="Enter teacher name"
+                      defaultValue={editing ? editing.info : ""}
                       required
                       ref={addInfo}
                       className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
@@ -87,6 +100,7 @@ const AddTeacher = () => {
                     <input
                       type="text"
                       placeholder="Enter subjects"
+                      defaultValue={editing ? editing.subjects : ""}
                       required
                       ref={addSubjects}
                       className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
@@ -98,6 +112,7 @@ const AddTeacher = () => {
                     <input
                       type="text"
                       placeholder="Enter classes"
+                      defaultValue={editing ? editing.classes : ""}
                       required
                       ref={addClasses}
                       className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
@@ -111,6 +126,7 @@ const AddTeacher = () => {
                     <input
                       type="tel"
                       placeholder="Enter contact number"
+                      defaultValue={editing ? editing.number : ""}
                       required
                       ref={addNumber}
                       className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
@@ -122,6 +138,7 @@ const AddTeacher = () => {
                     <textarea
                       rows={3}
                       placeholder="Enter address details"
+                      defaultValue={editing ? editing.details : ""}
                       required
                       ref={addDetails}
                       className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500 resize-none"
@@ -133,7 +150,7 @@ const AddTeacher = () => {
                       type="submit"
                       className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 cursor-pointer"
                     >
-                      Save
+                      {editing ? "Update" : "Save"}
                     </button>
 
                     <button
