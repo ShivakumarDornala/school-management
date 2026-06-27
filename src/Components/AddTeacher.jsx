@@ -50,76 +50,95 @@ const AddTeacher = () => {
               className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm"
               onClick={() => setShowForm(false)}
             />
-            <div className="fixed inset-0 z-50  flex items-center justify-center">
-              <div className="relative bg-white rounded-lg shadow-xl p-6 w-[90%] max-w-4xl">
-                <div className="flex justify-between">
-                  <h2 className="my-3 text-xl font-semibold">Add Teacher</h2>
-                  <button
-                    onClick={() => setShowForm(false)}
-                    className="flex items-center justify-center absolute top-7 right-6 text-2xl hover:bg-gray-400 px-2 hover:cursor-pointer hover:rounded-full"
-                  >
-                    ×
-                  </button>
-                </div>
-                <div className="flex">
-                  <form
-                    action="POST"
-                    onSubmit={handleTeacherSubmit}
-                    className="flex-col gap-2"
-                  >
+
+            <div className="fixed inset-0 z-50 flex items-center justify-center">
+              <div className="relative bg-white rounded-lg shadow-xl p-6 w-[50%] max-w-4xl">
+                <h2 className="mb-4 text-xl font-semibold">Add Teacher</h2>
+
+                <button
+                  onClick={() => setShowForm(false)}
+                  className="absolute top-4 right-4 flex items-center justify-center text-2xl hover:bg-gray-400 px-2 rounded-full cursor-pointer"
+                >
+                  ×
+                </button>
+
+                <form onSubmit={handleTeacherSubmit}>
+                  <div className="mb-4">
+                    <label className="mb-1 block font-medium">
+                      Teacher Information
+                    </label>
                     <input
                       type="text"
-                      placeholder="Info"
-                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      placeholder="Enter teacher name"
                       required
                       ref={addInfo}
+                      className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
                     />
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="mb-1 block font-medium">Subjects</label>
                     <input
                       type="text"
-                      placeholder="Enter Subjects"
-                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      placeholder="Enter subjects"
                       required
                       ref={addSubjects}
+                      className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
                     />
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="mb-1 block font-medium">Classes</label>
                     <input
                       type="text"
-                      placeholder="Enter Classes"
-                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      placeholder="Enter classes"
                       required
                       ref={addClasses}
+                      className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
                     />
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="mb-1 block font-medium">
+                      Contact Number
+                    </label>
                     <input
-                      type="text"
-                      placeholder="Contact Number"
-                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                      type="tel"
+                      placeholder="Enter contact number"
                       required
                       ref={addNumber}
+                      className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500"
                     />
-                    <input
-                      type="text"
-                      placeholder="Address Deatails"
-                      className="border border-gray-600 p-2 rounded flex-1 min-w-[150px]"
+                  </div>
+
+                  <div className="mb-4">
+                    <label className="mb-1 block font-medium">Address</label>
+                    <textarea
+                      rows={3}
+                      placeholder="Enter address details"
                       required
                       ref={addDetails}
+                      className="w-full rounded-lg border p-2 outline-none focus:ring-2 focus:ring-blue-500 resize-none"
                     />
-                    <div className="flex justify-between">
-                      <button
-                        type="submit"
-                        className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-blue-600"
-                      >
-                        Save
-                      </button>
+                  </div>
 
-                      <button
-                        type="button"
-                        onClick={() => setShowForm(false)}
-                        className="rounded-lg bg-red-500 px-4 py-2 text-white hover:cursor-pointer hover:bg-red-600"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                </div>
+                  <div className="flex justify-between">
+                    <button
+                      type="submit"
+                      className="rounded-lg bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 cursor-pointer"
+                    >
+                      Save
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={() => setShowForm(false)}
+                      className="rounded-lg bg-red-500 px-4 py-2 text-white hover:bg-red-600 cursor-pointer"
+                    >
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
           </>
